@@ -1,0 +1,27 @@
+Vagrant.configure(2) do |config|
+
+    config.vm.box = "centos/8"
+    config.vm.box_version = "2011.0"
+    config.vm.box_download_insecure=true
+    config.vm.define "mchapardS" do |control|
+        control.vm.hostname = "mchapardS"
+        control.vm.network "private_network", ip: "192.168.42.110"
+        control.vm.provider "virtualbox" do |v|
+            v.cpus = 1
+            v.memory = 512
+            v.customize ["modifyvm", :id, "--name", "mchapardS"]
+        end
+        control.vm.provision "shell", path: "server.sh"
+            
+    end
+    config.vm.define "shthevakSW" do |control|
+        control.vm.hostname = "shthevakSW"
+        control.vm.network "private_network", ip: "192.168.42.111"
+        control.vm.provider "virtualbox" do |v|
+            v.cpus = 1
+            v.memory = 512
+            v.customize ["modifyvm", :id, "--name", "shthevakSW"]
+        end
+        control.vm.provision "shell", path: "agent.sh"
+    end
+end
