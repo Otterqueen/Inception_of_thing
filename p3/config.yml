@@ -1,0 +1,4 @@
+- install k3d
+- verif docker install
+- creer un cluster k3d
+install argocd

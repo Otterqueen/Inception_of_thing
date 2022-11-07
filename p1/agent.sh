@@ -1,4 +1,4 @@
-echo "toto"
+echo "Lancement worker"
 
 sudo systemctl disable firewalld
 sudo systemctl stop firewalld
