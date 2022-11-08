@@ -7,8 +7,8 @@ Vagrant.configure(2) do |config|
         control.vm.hostname = "mchapardS"
         control.vm.network "private_network", ip: "192.168.42.110"
         control.vm.provider "virtualbox" do |v|
-            v.cpus = 1
-            v.memory = 1024
+            v.cpus = 2
+            v.memory = 2048
             v.customize ["modifyvm", :id, "--name", "mchapardS"]
         end
         control.vm.provision "shell", path: "server.sh"
