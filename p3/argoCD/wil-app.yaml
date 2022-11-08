@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: wil-app
+  namespace: argocd
+spec:
+  destination:
+    namespace: dev
+    server: https://kubernetes.default.svc
+  project: development
+  source:
+    directory:
+      recurse: true
+    path: .
+    repoURL: https://github.com/Otterqueen/app-p3-iot.git
+    targetRevision: HEAD
+  syncPolicy:
+    automated: {}
