@@ -12,7 +12,7 @@ spec:
     directory:
       recurse: true
     path: .
-    repoURL: https://github.com/Otterqueen/app-p3-iot.git
+    repoURL: https://github.com/Otterqueen/app-p3-shthevak.git
     targetRevision: HEAD
   syncPolicy:
     automated: {}

@@ -13,4 +13,4 @@ spec:
   - group: '*'
     kind: '*'
   sourceRepos:
-  - https://github.com/Otterqueen/app-p3-iot.git
+  - https://github.com/Otterqueen/app-p3-shthevak.git

@@ -9,6 +9,6 @@ metadata:
   namespace: argocd
 data: 
   repositories: |
-    - name: app-p3-iot
+    - name: app-p3-shthevak
       type: git
-      url: https://github.com/Otterqueen/app-p3-iot.git
+      url: https://github.com/Otterqueen/app-p3-shthevak.git
