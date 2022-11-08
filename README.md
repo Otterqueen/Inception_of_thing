@@ -44,6 +44,8 @@ end
 `vagrant ssh [nom de la machine]` : permet de se connecter en ssh sans mot de passe  
 `sudo journalctl -+f` : permet d'avoirs les logs de la machine  
 
+Dans les scripts de config on désactive les firewalls, on met à jour les mirror list afin d'installer k3s et le lancer avec les infos necessaires dont l'ip et le token.
+
 ## Part 2: K3s and three simple applications
 
 **service**: Une manière abstraite d'exposer une application s'exécutant sur un ensemble de Pods en tant que service réseau, c'est un objet REST.
