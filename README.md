@@ -43,3 +43,21 @@ end
 `vagrant destroy` : détruit l'environnement décrit dans le vagrantfile  
 `vagrant ssh [nom de la machine]` : permet de se connecter en ssh sans mot de passe  
 `sudo journalctl -+f` : permet d'avoirs les logs de la machine  
+
+## Part 2: K3s and three simple applications
+
+**service**: Une manière abstraite d'exposer une application s'exécutant sur un ensemble de Pods en tant que service réseau, c'est un objet REST.
+
+**ingress**: expose les routes HTTP et HTTPS de l'extérieur du cluster à des services au sein du cluster. Le routage du trafic est contrôlé par des règles définies sur la ressource Ingress.
+```none
+    internet
+        |
+   [ Ingress ]
+   --|-----|--
+   [ Services ]
+```
+**deployment** : fournit des mises à jour déclaratives pour Pods et ReplicaSets. Décrit un état désiré dans un déploiement et le controlleur déploiement change l'état réel à l'état souhaité à un rythme contrôlé.
+
+`Pour avoir app1.com et app2.com (et app3.com) fonctionnels, il est nécessaire de modifier le fichier host de window afin d’y ajouter nos redirections ; attention cela peut prendre plusieurs minutes avant d’être fonctionnel
+`  
+`(Ouvrir bloc note en tant qu’administrateur, ouvrir le fichier C:\Windows\System32\drivers\etc\hosts  et y ajouter les lignes 192.168.42.110 app1/2/3.com )`
