@@ -63,3 +63,38 @@ Dans les scripts de config on désactive les firewalls, on met à jour les mirro
 `Pour avoir app1.com et app2.com (et app3.com) fonctionnels, il est nécessaire de modifier le fichier host de window afin d’y ajouter nos redirections ; attention cela peut prendre plusieurs minutes avant d’être fonctionnel
 `  
 `(Ouvrir bloc note en tant qu’administrateur, ouvrir le fichier C:\Windows\System32\drivers\etc\hosts  et y ajouter les lignes 192.168.42.110 app1/2/3.com )`
+
+
+## Part 3: K3d and Argo CD
+
+**K3d** comme k3s est une version allégée de k8s, avec cependant quelque différences : 
+
+ - k3s déploie des cluster de machines virtuels tandis que k3d déploie des cluster k8s de containers k3s docker
+ - k3d offre une version plus "scalable" de k3s
+ - même si les applications sont similaire, k3d  semble etre une version plus flexible et améliorée de k3s
+ - k3s est pensé pour être facilement deployable dans des environnements de production (environnement local) k3d quand a lui est pensé pour s'adapter a des environnements encore plus petit tel que Raspberry Pi, IoT et Edge...
+
+### Étapes d'installation
+
+ - Installer `Docker desktop`
+ - Installer `Chocolatey`
+	 - `Set-ExecutionPolicy Bypass -Scope Process -Force; [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.ServicePointManager]::SecurityProtocol -bor 3072; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))`
+ - Installer k3d (+outils)
+	 - `choco install k3d -y`
+	 - `choco install jq -y (lightweight and flexible command-line JSON processor)`
+	 - `choco install yq -y (lightweight and portable command-line YAML processor)`
+	 - `choco install kubernetes-helm -y (helps you manage Kubernetes applications )`
+ - config profile powerShell 
+	```
+	# Create user profile file if it doesn't exist
+	if ( -not ( Test-Path $Profile ) ) { New-Item -Path $Profile -Type File -Force }
+	# Append the k3d completion to the end of the user profile 
+	k3d completion powershell | Out-File -Append $Profile
+	```
+- Creation du cluster
+	- `k3d cluster create mycluster`
+- Verification
+	- `kubectl get nodes`
+- Installer argocd dans le namespace
+	- `kubectl create namespace argocd`
+	- `kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml`
