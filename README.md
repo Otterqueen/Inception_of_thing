@@ -6,7 +6,7 @@ Ce projet a pour but de vous faire découvrir kubernetes d'un point de vue déve
 
 ## Part 1: K3s and Vagrant
 
-**Kubernetes (K8s)** est un système open-source permettant d'automatiser le déploiement, la mise à l'échelle et la gestion des applications conteneurisées.
+**Kubernetes (K8s)** est un système open-source permettant d'automatiser le déploiement, la mise à l'échelle et la gestion des applications conteneurisées.  
 **K3s** est une version allégée de celui-ci.
 
 **Vagrant** est un logiciel qui permet de paramétrer des environnements de développement virtuels. La configuration se fait dans un vagrantfile, avec une syntaxe similaire au ruby.
@@ -67,12 +67,12 @@ Dans les scripts de config on désactive les firewalls, on met à jour les mirro
 
 ## Part 3: K3d and Argo CD
 
-**K3d** comme k3s est une version allégée de k8s, avec cependant quelque différences : 
+**K3d** comme k3s est une version allégée de k8s, avec cependant quelques différences : 
 
- - k3s déploie des cluster de machines virtuels tandis que k3d déploie des cluster k8s de containers k3s docker
+ - k3s déploie des clusters de machines virtuel tandis que k3d déploie des clusters k8s de containers k3s docker
  - k3d offre une version plus "scalable" de k3s
  - même si les applications sont similaire, k3d  semble etre une version plus flexible et améliorée de k3s
- - k3s est pensé pour être facilement deployable dans des environnements de production (environnement local) k3d quand a lui est pensé pour s'adapter a des environnements encore plus petit tel que Raspberry Pi, IoT et Edge...
+ - k3s est pensé pour être facilement deployable dans des environnements de production (environnement local) k3d quand à lui est pensé pour s'adapter à des environnements encore plus petit tel que Raspberry Pi, IoT et Edge...
 
 ### Étapes d'installation
 
